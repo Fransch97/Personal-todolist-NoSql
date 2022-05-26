@@ -1,0 +1,56 @@
+{ "accounts":
+  [ 
+    {   "id": "1",
+        "nickname" : "francesco",
+        "pw" : "francesco",
+        "list" : [
+            {
+                "id" : 1,
+                "name" : "Fare la spesa",
+                "done" : "false",
+                "time" : "16:23",
+                "date" : "26/05/2022"
+            }
+        ] 
+    },
+    {   "id": "2",
+        "nickname" : "marco",
+        "pw" : "polo",
+        "list" : [
+            {
+                "id" : 1,
+                "name" : "Fare la spesa",
+                "done" : "false",
+                "time" : "16:23",
+                "date" : "26/05/2022"
+            }
+        ] 
+    },
+    {   "id": "3",
+        "nickname" : "ciccio",
+        "pw" : "baldo",
+        "list" : [
+            {
+                "id" : 1,
+                "name" : "Fare la spesa",
+                "done" : "false",
+                "time" : "16:23",
+                "date" : "26/05/2022"
+            }
+        ] 
+    },
+    {   "id": "4",
+        "nickname" : "maria",
+        "pw" : "maryj",
+        "list" : [
+            {
+                "id" : 1,
+                "name" : "Fare la spesa",
+                "done" : "false",
+                "time" : "16:23",
+                "date" : "26/05/2022"
+            }
+        ] 
+    }
+  ]
+}

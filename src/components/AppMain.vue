@@ -8,10 +8,10 @@
                     <button class="btn btn-dark" @click="addTodo() ">vai</button>
                 </div>
           </div>
-          <div class="todo" v-for="item in acc.list" :key="item.id">
+          <div class="todo" v-for="(item, index ) in acc.list" :key="index">
                 <span :class=" item.done === true ? 'done':''">{{item.name}}</span> 
                 <div> 
-                <span class="btn btn-dark mx-2">&#10004;</span>
+                <span class="btn btn-dark mx-2" @click="done(index)">&#10004;</span>
                 <span class="btn btn-dark" @click="deleteTodo(item.name)">&#128465;</span>
                 </div>
             </div>
@@ -39,13 +39,18 @@ methods: {
         });
         this.putAxios(this.actualAcc)
     },
+    done(la){
+        if(this.actualAcc.list[la].done === false){this.actualAcc.list[la].done = true}
+        else{this.actualAcc.list[la].done = false}
+        this.putAxios(this.actualAcc)
+    },
     putAxios(param){
         axios.put(this.endpoit + this.acc.id , param)
         .then(r=>{
             console.log(r.data.list)
         })
     },
-    
+
 
 },
 data() {

@@ -4,7 +4,12 @@
       "id": 1,
       "nickname": "francesco",
       "pw": "francesco",
-      "list": []
+      "list": [
+        {
+          "done": true,
+          "name": "erer"
+        }
+      ]
     },
     {
       "id": 2,

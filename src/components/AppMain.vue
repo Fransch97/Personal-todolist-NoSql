@@ -9,10 +9,10 @@
                 </div>
           </div>
           <div class="todo" v-for="(item, index ) in acc.list" :key="index">
-                <span :class=" item.done === true ? 'done':''">{{item.name}}</span> 
+                <span class="doitem" :class=" item.done === true ? 'done':''">{{item.name}}</span> 
                 <div> 
                 <span class="btn btn-dark mx-2" @click="done(index)">&#10004;</span>
-                <span class="btn btn-dark" @click="deleteTodo(item.name)">&#128465;</span>
+                <span class="btn btn-dark" @click="deleteTodo(index)">&#128465;</span>
                 </div>
             </div>
         </div>
@@ -27,16 +27,15 @@ props:{
     acc:Object,
 },
 methods: {
+    
     addTodo(){
         this.actualAcc.list.push({...this.newlist})
         this.putAxios(this.actualAcc)
+        this.newlist.name = ""
     },
     deleteTodo(param){
-        this.actualAcc.list.forEach((list, index) => {
-            if(list.name === param){
-                 this.actualAcc.list.splice(index, 1)
-            }
-        });
+            
+        this.actualAcc.list.splice(param, 1)
         this.putAxios(this.actualAcc)
     },
     done(la){
@@ -97,6 +96,9 @@ main{
             background-color: rgb(252, 252, 252);
             .done{ 
                 text-decoration: line-through;
+            }
+            .doitem{
+                text-transform: capitalize;
             }
         }
 }

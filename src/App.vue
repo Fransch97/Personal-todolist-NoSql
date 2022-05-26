@@ -5,8 +5,8 @@
     
     <!-- logged -->
     <div v-else>
-      <AppHeader :acc="acc" />
-      <AppMain :acc="acc"/>
+      <AppHeader :acc="acc" @logout="shutdown" />
+      <AppMain :acc="acc" />
     </div>
   
   
@@ -35,6 +35,9 @@ export default {
     aprover(arr){
       this.logged = arr[0]
       this.acc = arr[1]
+    },
+    shutdown(){
+      this.logged = false
     }
   },
 }

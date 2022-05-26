@@ -6,8 +6,16 @@
       "pw": "francesco",
       "list": [
         {
+          "done": false,
+          "name": "studiare OOp"
+        },
+        {
           "done": true,
-          "name": "erer"
+          "name": "studiare import e export di funzioni"
+        },
+        {
+          "done": false,
+          "name": "smanettare come un pazzo sulla nuova moto"
         }
       ]
     },
@@ -15,13 +23,7 @@
       "id": 2,
       "nickname": "marco",
       "pw": "polo",
-      "list": [
-        {
-          "id": 1,
-          "name": "Fare la spesa",
-          "done": "false"
-        }
-      ]
+      "list": []
     },
     {
       "id": 3,
@@ -54,6 +56,31 @@
       "lastName": "rtrt",
       "list": [],
       "id": 5
+    },
+    {
+      "nickname": "jesus",
+      "pw": "crise",
+      "name": "jesu",
+      "lastName": "cristo",
+      "list": [
+        {
+          "done": false,
+          "name": "Fare volare le scimmie"
+        },
+        {
+          "done": false,
+          "name": "avviare la terza guerra mondiale"
+        },
+        {
+          "done": false,
+          "name": "finire la 3 guerra mondiale"
+        },
+        {
+          "done": false,
+          "name": "niente"
+        }
+      ],
+      "id": 6
     }
   ]
 }

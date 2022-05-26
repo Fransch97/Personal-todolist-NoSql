@@ -4,15 +4,15 @@
           <div class="mainheader">
                 <p>Aggiungi qualcosa da fare</p>
                 <div class="add">
-                    <input type="text">
-                    <button class="btn btn-dark">vai</button>
+                    <input v-model="newlist.name"  @keyup.enter="addTodo()" type="text">
+                    <button class="btn btn-dark" @click="addTodo() ">vai</button>
                 </div>
           </div>
           <div class="todo" v-for="item in acc.list" :key="item.id">
                 <span :class=" item.done === true ? 'done':''">{{item.name}}</span> 
                 <div> 
                 <span class="btn btn-dark mx-2">&#10004;</span>
-                <span class="btn btn-dark">&#128465;</span>
+                <span class="btn btn-dark" @click="deleteTodo(item.name)">&#128465;</span>
                 </div>
             </div>
         </div>
@@ -20,11 +20,44 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
 name:"AppMain",
 props:{
-    acc:Object
-}
+    acc:Object,
+},
+methods: {
+    addTodo(){
+        this.actualAcc.list.push({...this.newlist})
+        this.putAxios(this.actualAcc)
+    },
+    deleteTodo(param){
+        this.actualAcc.list.forEach((list, index) => {
+            if(list.name === param){
+                 this.actualAcc.list.splice(index, 1)
+            }
+        });
+        this.putAxios(this.actualAcc)
+    },
+    putAxios(param){
+        axios.put(this.endpoit + this.acc.id , param)
+        .then(r=>{
+            console.log(r.data.list)
+        })
+    },
+    
+
+},
+data() {
+    return {
+        endpoit: "http://localhost:3000/accounts/",
+        newlist:{
+            done: false,
+            name: ""
+        },
+        actualAcc: this.acc
+    }
+},
 }
 </script>
 

@@ -53,6 +53,7 @@ export default {
     methods: {
         //choose form function
         logForm(){
+            this.error = false
             this.login = !this.login
         },
         //register
@@ -78,7 +79,7 @@ export default {
                         if(acc.pw === this.logintry.password){
                             this.logged = true
                             this.error = false
-                            this.emiter()
+                            this.emiter(acc)
                         }
                     }else{
                         if(r.data.length == acc.id && !this.logged){
@@ -88,8 +89,8 @@ export default {
                 })
                 })
         },
-        emiter(){
-            this.$emit('approve', true)
+        emiter(acc){
+            this.$emit('approve', [true, acc])
         }
     },
   
